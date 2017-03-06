@@ -11,13 +11,16 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("#btnClick").click(function () {
-            $.ajax({
-                url: "/api/ProductApi/Product",
-                type: "GET",
-                dataType: "json",
-                success: function (product) {
-                    alert(product.Name);
-                }
+            //$.ajax({
+            //    url: "/api/ProductApi/Product",
+            //    type: "GET",
+            //    dataType: "json",
+            //    success: function (product) {
+            //        alert(product.Name);
+            //    }
+            //});
+            $.getJSON('/api/ProductApi/Product').done(function (product) {
+                alert(product.Name);
             });
         });
     });
