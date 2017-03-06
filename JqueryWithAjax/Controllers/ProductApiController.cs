@@ -16,5 +16,10 @@ namespace JqueryWithAjax.Controllers
             var product = (from p in Data.Products where p.ID == 1 select p).FirstOrDefault();
             return product;
         }
+        [HttpPost]
+        public void Create(Product newProduct)
+        {
+            Data.Products.Add(newProduct);
+        }
     }
 }
