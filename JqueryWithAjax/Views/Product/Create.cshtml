@@ -49,10 +49,19 @@
                 "Name": $.name,
                 "Price": $.price
             };
-            $.post('@Url.Action("Create", "api/ProductApi")', $.product).done(function () {
+            @*$.post('@Url.Action("Create", "api/ProductApi")', $.product).done(function () {
                 alert("Process is successful");
             }).fail(function () {
                 alert("Error!");
+            });*@
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("Create", "api/ProductApi")',
+                data: $.product,
+                dataType: "json",
+                success: function (data) {
+                    alert("Process is successful");
+                }
             });
         });
     });
